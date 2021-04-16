@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/play_hover.png-3f510d9c3b4c58c4e7f3ff07e059dcb1.stex"
+path="res://.import/TitleScreen2.png-e774888bf7d5fad74685f9cd89563781.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://play_hover.png"
-dest_files=[ "res://.import/play_hover.png-3f510d9c3b4c58c4e7f3ff07e059dcb1.stex" ]
+source_file="res://sprites/TitleScreen2.png"
+dest_files=[ "res://.import/TitleScreen2.png-e774888bf7d5fad74685f9cd89563781.stex" ]
 
 [params]
 

@@ -11,6 +11,7 @@ func _ready():
 	get_node("credits_hover").connect("pressed", self, "_show_credits")
 	get_node("Credits").connect("pressed", self, "_hide_credits")
 	get_node("quit_hover").connect("pressed", self, "_quit")
+	get_node("play_hover").connect("pressed", self, "_play")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,3 +26,6 @@ func _hide_credits():
 	
 func _quit():
 	get_tree().quit(0)
+	
+func _play():
+	get_tree().change_scene("res://Fight 1.tscn")
