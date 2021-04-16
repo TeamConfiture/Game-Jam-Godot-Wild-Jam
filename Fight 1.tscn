@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://sprites/marine.png" type="Texture" id=1]
 [ext_resource path="res://sprites/RollTheDice.png" type="Texture" id=2]
@@ -6,29 +6,31 @@
 [ext_resource path="res://sprites/purple.png" type="Texture" id=4]
 [ext_resource path="res://sprites/green.png" type="Texture" id=5]
 [ext_resource path="res://sprites/red.png" type="Texture" id=6]
-[ext_resource path="res://sprites/unknown.png" type="Texture" id=7]
-[ext_resource path="res://sprites/background.jpg" type="Texture" id=8]
+[ext_resource path="res://sprites/fauteuil.png" type="Texture" id=7]
+[ext_resource path="res://sprites/desert.png" type="Texture" id=8]
 [ext_resource path="res://sprites/de-20-faces_tmp.png" type="Texture" id=9]
 [ext_resource path="res://Fight 1.gd" type="Script" id=10]
 [ext_resource path="res://sprites/DICE.WAV" type="AudioStream" id=11]
 [ext_resource path="res://blue.png" type="Texture" id=12]
 [ext_resource path="res://life_lost.png" type="Texture" id=13]
 [ext_resource path="res://life.png" type="Texture" id=14]
+[ext_resource path="res://yellow.png" type="Texture" id=15]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 10 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 359.713, 237.864 )
+position = Vector2( 504.604, 311.983 )
+scale = Vector2( 0.547216, 0.547216 )
 z_index = -2
 texture = ExtResource( 8 )
 
-[node name="life" type="Sprite" parent="background"]
-position = Vector2( -30.5849, -95.864 )
-scale = Vector2( 0.280488, 0.280488 )
+[node name="life" type="Sprite" parent="."]
+position = Vector2( 619.971, 239.395 )
+scale = Vector2( 0.153487, 0.153488 )
 texture = ExtResource( 14 )
 
-[node name="life_lost" type="Sprite" parent="background/life"]
+[node name="life_lost" type="Sprite" parent="life"]
 position = Vector2( -4.02197, -3.56516 )
 z_index = -1
 texture = ExtResource( 13 )
@@ -46,8 +48,8 @@ __meta__ = {
 }
 
 [node name="Monster" type="Sprite" parent="."]
-position = Vector2( 497.66, 152.823 )
-scale = Vector2( 0.343923, 0.343923 )
+position = Vector2( 474.882, 152.328 )
+scale = Vector2( 0.253613, 0.253613 )
 texture = ExtResource( 7 )
 
 [node name="Dice1" type="Control" parent="."]
@@ -119,7 +121,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="EnemyDice"]
-modulate = Color( 0.32549, 0.380392, 0.988235, 1 )
+modulate = Color( 1, 0.188235, 0.188235, 1 )
 position = Vector2( 75, 75 )
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 9 )
@@ -153,6 +155,20 @@ scale = Vector2( 0.270629, 0.270629 )
 texture = ExtResource( 14 )
 
 [node name="life_lost" type="Sprite" parent="Sprite/green/life"]
+position = Vector2( -0.00195313, 8.21143 )
+z_index = -1
+texture = ExtResource( 13 )
+
+[node name="yelmlo" type="Sprite" parent="Sprite"]
+position = Vector2( 1713.64, 32.829 )
+texture = ExtResource( 15 )
+
+[node name="life" type="Sprite" parent="Sprite/yelmlo"]
+position = Vector2( -54.8083, -201.862 )
+scale = Vector2( 0.270629, 0.270629 )
+texture = ExtResource( 14 )
+
+[node name="life_lost" type="Sprite" parent="Sprite/yelmlo/life"]
 position = Vector2( -0.00195313, 8.21143 )
 z_index = -1
 texture = ExtResource( 13 )
@@ -195,7 +211,7 @@ scale = Vector2( 0.270629, 0.270629 )
 texture = ExtResource( 14 )
 
 [node name="life_lost" type="Sprite" parent="Sprite/purple/life"]
-position = Vector2( 0.0444336, -0.354492 )
+position = Vector2( 0.0449219, -0.354248 )
 z_index = -1
 texture = ExtResource( 13 )
 

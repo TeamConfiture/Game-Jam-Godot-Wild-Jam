@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/unknown.png-811bea9b0f61d1cf609643fe80088c86.stex"
+path="res://.import/fauteuil.png-ca2c21f0d757c182c436771187b12d3a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/unknown.png"
-dest_files=[ "res://.import/unknown.png-811bea9b0f61d1cf609643fe80088c86.stex" ]
+source_file="res://sprites/fauteuil.png"
+dest_files=[ "res://.import/fauteuil.png-ca2c21f0d757c182c436771187b12d3a.stex" ]
 
 [params]
 

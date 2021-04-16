@@ -35,8 +35,10 @@ func _alive_count():
 	return len(get_node("Sprite").get_children()) - ourHP.count(0)
 func _change_life(nb: int):
 	get_node("Sprite").get_child(nb).get_child(0).region_enabled = true 
-	get_node("Sprite").get_child(nb).get_child(0).set_region_rect(Rect2(-ourHP[nb]/70*361,0,361,328))
-	get_node("Sprite").get_child(nb).get_child(0).set_offset(Vector2(-ourHP[nb]/70*361,0))
+	get_node("Sprite").get_child(nb).get_child(0).set_region_rect(Rect2(-ourHP[nb]/70.0*80.0,0,361,328))
+	get_node("Sprite").get_child(nb).get_child(0).set_offset(Vector2(-ourHP[nb]/70.0*80.0,0))
+	print(ourHP[nb]/70.0)
+	
 	
 func _attack():
 	#get_node("RollDice").disabled = true
@@ -54,7 +56,7 @@ func _attack():
 	
 	
 func _enemy_attack():
-	var damage = roll_dice(20, "EnemyDice") / _alive_count() # requires _check_deaths
+	var damage = roll_dice(20, "EnemyDice") #/ _alive_count() # requires _check_deaths
 	var nb = rand_range(0,6)
 	while (ourHP[nb] == 0):
 		nb = rand_range(0,6)
