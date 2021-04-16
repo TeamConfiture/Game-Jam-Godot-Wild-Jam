@@ -1,8 +1,8 @@
 extends Node2D
 
 
-var enemyHP = 100
-var ourHP = 700
+var enemyHP = 700
+var ourHP = [70,70,70,70,70,70,70]
 var i = 0
 var enemy_attack = false
 var j = 0
@@ -18,10 +18,13 @@ func roll_dice(dice: int, object: String):
 func _ready():
 	randomize()
 	get_node("RollDice").connect("pressed", self, "_attack")
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if _alive_count() == 0 || enemyHP == 0:
+		get_tree().change_scene("res://SplashScreen.tscn")
 	if enemy_attack:
 		if j > 50:
 			_enemy_attack()
@@ -29,15 +32,21 @@ func _process(delta):
 		j+=1
 #	pass
 func _alive_count():
-	return len(get_node("Sprite").get_children()) - deaths
-#func _check_deaths():
-	#deaths =
+	return len(get_node("Sprite").get_children()) - ourHP.count(0)
+func _change_life(nb: int):
+	get_node("Sprite").get_child(nb).get_child(0).region_enabled = true 
+	get_node("Sprite").get_child(nb).get_child(0).set_region_rect(Rect2(-ourHP[nb]/70*361,0,361,328))
+	get_node("Sprite").get_child(nb).get_child(0).set_offset(Vector2(-ourHP[nb]/70*361,0))
+	
 func _attack():
 	#get_node("RollDice").disabled = true
 	var damage = roll_dice(20, "Dice1")
-	enemyHP -= damage
+	if (damage < enemyHP):
+		enemyHP -= damage
+	else:
+		enemyHP = 0
 	i += 1
-	if i >= _alive_count():
+	if i == _alive_count():
 		enemy_attack = true
 		get_node("RollDice").disabled = true
 		i = 0
@@ -45,8 +54,15 @@ func _attack():
 	
 	
 func _enemy_attack():
-	var damage = roll_dice(20, "EnemyDice")
-	ourHP -= damage
+	var damage = roll_dice(20, "EnemyDice") / _alive_count() # requires _check_deaths
+	var nb = rand_range(0,6)
+	while (ourHP[nb] == 0):
+		nb = rand_range(0,6)
+	if (damage < ourHP[nb]):
+		ourHP[nb] -= damage
+	else:
+		ourHP[nb] = 0
+	_change_life(nb)
 	enemy_attack = false
 	get_node("RollDice").disabled = false
 
