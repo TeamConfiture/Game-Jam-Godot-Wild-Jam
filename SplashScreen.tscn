@@ -66,7 +66,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credits" type="Button" parent="." instance=ExtResource( 6 )]
+[node name="Credits" parent="." instance=ExtResource( 6 )]
 visible = false
-margin_right = 1021.0
-margin_bottom = 598.0
