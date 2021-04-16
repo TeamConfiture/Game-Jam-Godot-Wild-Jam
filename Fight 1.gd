@@ -2,10 +2,11 @@ extends Node2D
 
 
 var enemyHP = 100
-var ourHP = 500
+var ourHP = 700
 var i = 0
 var enemy_attack = false
 var j = 0
+var deaths = 0
 func roll_dice(dice: int, object: String):
 	var roll = randi() % dice
 	get_node(object + "/Label").text = str(roll + 1)
@@ -27,13 +28,16 @@ func _process(delta):
 			j = 0
 		j+=1
 #	pass
-
+func _alive_count():
+	return len(get_node("Sprite").get_children()) - deaths
+#func _check_deaths():
+	#deaths =
 func _attack():
 	#get_node("RollDice").disabled = true
 	var damage = roll_dice(20, "Dice1")
 	enemyHP -= damage
 	i += 1
-	if i >= len(get_node("Sprite").get_children()):
+	if i >= _alive_count():
 		enemy_attack = true
 		get_node("RollDice").disabled = true
 		i = 0

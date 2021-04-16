@@ -150,7 +150,7 @@ texture = ExtResource( 4 )
 position = Vector2( 1083.91, -21.1888 )
 texture = ExtResource( 6 )
 
-[node name="blue" type="Sprite" parent="."]
-position = Vector2( 65.5706, 497 )
-scale = Vector2( 0.472393, 0.472393 )
+[node name="blue" type="Sprite" parent="Sprite"]
+position = Vector2( -255.763, 20.3601 )
+scale = Vector2( 1.04976, 1.04976 )
 texture = ExtResource( 12 )
