@@ -8,6 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_node("play_hover").connect("pressed", self, "_launch_scene")
 	get_node("credits_hover").connect("pressed", self, "_show_credits")
 	get_node("Credits").connect("pressed", self, "_hide_credits")
 	get_node("quit_hover").connect("pressed", self, "_quit")
@@ -16,7 +17,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
+func _launch_scene():
+	get_tree().change_scene("res://Battle1.tscn")
 func _show_credits():
 	get_node("Credits").visible = true
 	
