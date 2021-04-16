@@ -3,8 +3,9 @@ extends Node2D
 
 var enemyHP = 100
 var ourHP = 500
-var team_attacked = false
 var i = 0
+var enemy_attack = false
+var j = 0
 func roll_dice(dice: int, object: String):
 	var roll = randi() % dice
 	get_node(object + "/Label").text = str(roll + 1)
@@ -20,28 +21,28 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (team_attacked):
-		if (i > 50):
+	if enemy_attack:
+		if j > 50:
 			_enemy_attack()
-		i+=1
+			j = 0
+		j+=1
 #	pass
 
 func _attack():
-	get_node("RollDice").disabled = true
+	#get_node("RollDice").disabled = true
 	var damage = roll_dice(20, "Dice1")
 	enemyHP -= damage
-	if (enemyHP < 0):
-		print("l'ennemi perd")
-	team_attacked = true
-	i = 0
+	i += 1
+	if i >= len(get_node("Sprite").get_children()):
+		enemy_attack = true
+		get_node("RollDice").disabled = true
+		i = 0
 	
 	
 	
 func _enemy_attack():
 	var damage = roll_dice(20, "EnemyDice")
 	ourHP -= damage
-	if (ourHP < 0):
-		print("les amis perdent")
-	team_attacked = false
+	enemy_attack = false
 	get_node("RollDice").disabled = false
 
