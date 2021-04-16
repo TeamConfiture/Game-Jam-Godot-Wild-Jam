@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://foret.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="foret" type="Sprite" parent="."]
+position = Vector2( 522.629, 311.682 )
+scale = Vector2( 0.586588, 0.586589 )
+texture = ExtResource( 1 )
