@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var enemyHP = 700
+var enemyHP = 700000
 var ourHP = [70,70,70,70,70,70,70]
 var i = 0
 var enemy_attack = false
@@ -23,8 +23,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if _alive_count() == 0 || enemyHP == 0:
-		get_tree().change_scene("res://SplashScreen.tscn")
+	if enemyHP == 0:
+		get_tree().change_scene("res://Victory.tscn")
+	elif _alive_count() == 0:
+		get_tree().change_scene("res://Loose.tscn")
 	if enemy_attack:
 		if j > 50:
 			_enemy_attack()
