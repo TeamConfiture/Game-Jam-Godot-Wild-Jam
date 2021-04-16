@@ -28,4 +28,4 @@ func _quit():
 	get_tree().quit(0)
 	
 func _play():
-	get_tree().change_scene("res://Fight 1.tscn")
+	get_tree().change_scene("res://Rules.tscn")
