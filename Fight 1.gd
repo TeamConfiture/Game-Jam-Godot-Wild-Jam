@@ -59,9 +59,9 @@ func _attack():
 	
 func _enemy_attack():
 	var damage = roll_dice(20, "EnemyDice") #/ _alive_count() # requires _check_deaths
-	var nb = rand_range(0,6)
+	var nb = randi()%7
 	while (ourHP[nb] == 0):
-		nb = rand_range(0,6)
+		nb = randi()%7
 	if (damage < ourHP[nb]):
 		ourHP[nb] -= damage
 	else:
