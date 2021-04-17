@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var enemyHP = 700000
+var enemyHP = 3400
 var ourHP = [70,70,70,70,70,70,70]
 var i = 0
 var enemy_attack = false
@@ -41,8 +41,26 @@ func _change_life(nb: int):
 	get_node("Sprite").get_child(nb).get_child(0).set_offset(Vector2((1-ourHP[nb]/70.0)*361,0))
 	print(ourHP[nb]/70.0)
 	
+
 	
 func _attack():
+	if (get_node("pointer").position.x <= 1100):
+		var j = 0 if i+1 == _alive_count() else i+1
+		get_node("pointer").position.x += 150
+		while (ourHP[j] == 0):
+			print("<= 1100 Le chat  " + str(j) + " a " + str(ourHP[j]) + "HP")
+			get_node("pointer").position.x += 150
+			j += 1
+			if get_node("pointer").position.x >= 1100:
+				get_node("pointer").position.x += 100
+				j = 0
+	else:
+		var j = 0
+		get_node("pointer").position.x = 100
+		while (ourHP[j] == 0):
+			print("Le chat  " + str(j) + " a " + str(ourHP[j]) + "HP")
+			get_node("pointer").position.x += 150
+			j += 1
 	#get_node("RollDice").disabled = true
 	var damage = roll_dice(20, "Dice1")
 	if (damage < enemyHP):
@@ -54,11 +72,13 @@ func _attack():
 		enemy_attack = true
 		get_node("RollDice").disabled = true
 		i = 0
-	
+		get_node("pointer").position.x = 400
+		get_node("pointer").position.y = 50
+
 	
 	
 func _enemy_attack():
-	var damage = roll_dice(20, "EnemyDice") #/ _alive_count() # requires _check_deaths
+	var damage = roll_dice(50, "EnemyDice") #/ _alive_count() # requires _check_deaths
 	var nb = randi()%7
 	while (ourHP[nb] == 0):
 		nb = randi()%7
@@ -68,5 +88,12 @@ func _enemy_attack():
 		ourHP[nb] = 0
 	_change_life(nb)
 	enemy_attack = false
+	print("Le chat numéro" + str(nb) + " a " + str(ourHP[nb]) + "HP")
 	get_node("RollDice").disabled = false
-
+	var j = 0
+	get_node("pointer").position.x = 100
+	while (ourHP[j] == 0):
+		print("Le chat  " + str(j) + " a " + str(ourHP[j]) + "HP")
+		get_node("pointer").position.x += 150
+		j += 1
+	get_node("pointer").position.y = 348.107
