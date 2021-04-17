@@ -44,6 +44,8 @@ func _change_life(nb: int):
 
 	
 func _attack():
+	get_node("Dice1").visible = true
+	get_node("EnemyDice").visible = false
 	if (get_node("pointer").position.x <= 1100):
 		var j = 0 if i+1 == _alive_count() else i+1
 		get_node("pointer").position.x += 150
@@ -78,6 +80,8 @@ func _attack():
 	
 	
 func _enemy_attack():
+	get_node("Dice1").visible = false
+	get_node("EnemyDice").visible = true
 	var damage = roll_dice(50, "EnemyDice") #/ _alive_count() # requires _check_deaths
 	var nb = randi()%7
 	while (ourHP[nb] == 0):
