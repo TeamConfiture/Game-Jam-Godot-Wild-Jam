@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TitleScreen.png-f055e4fa53122bcaeb7589808846da83.stex"
+path="res://.import/victor.png-d18325ed076cdd3b97458bee4a8f9dc9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/TitleScreen.png"
-dest_files=[ "res://.import/TitleScreen.png-f055e4fa53122bcaeb7589808846da83.stex" ]
+source_file="res://victor.png"
+dest_files=[ "res://.import/victor.png-d18325ed076cdd3b97458bee4a8f9dc9.stex" ]
 
 [params]
 
