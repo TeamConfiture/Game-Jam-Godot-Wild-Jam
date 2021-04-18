@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pointer.png-1cfc1373c364efd7dde6b7804e352ca4.stex"
+path="res://.import/pointeur.png-a0e81c3f0c30014d4d6af5fdc130a90f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pointer.png"
-dest_files=[ "res://.import/pointer.png-1cfc1373c364efd7dde6b7804e352ca4.stex" ]
+source_file="res://pointeur.png"
+dest_files=[ "res://.import/pointeur.png-a0e81c3f0c30014d4d6af5fdc130a90f.stex" ]
 
 [params]
 

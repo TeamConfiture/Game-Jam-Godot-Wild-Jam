@@ -16,7 +16,7 @@
 [ext_resource path="res://life.png" type="Texture" id=14]
 [ext_resource path="res://yellow.png" type="Texture" id=15]
 [ext_resource path="res://GameJam7.ogg" type="AudioStream" id=16]
-[ext_resource path="res://pointer.png" type="Texture" id=17]
+[ext_resource path="res://pointeur.png" type="Texture" id=17]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 10 )
@@ -42,6 +42,8 @@ margin_left = 858.297
 margin_top = 213.584
 margin_right = 1011.3
 margin_bottom = 344.584
+focus_mode = 0
+enabled_focus_mode = 0
 icon = ExtResource( 2 )
 flat = true
 expand_icon = true
@@ -250,6 +252,6 @@ texture = ExtResource( 13 )
 stream = ExtResource( 16 )
 
 [node name="pointer" type="Sprite" parent="."]
-position = Vector2( 100, 348.107 )
-scale = Vector2( 0.391725, 0.391725 )
+position = Vector2( 89.4388, 349.273 )
+scale = Vector2( 0.100582, 0.100582 )
 texture = ExtResource( 17 )
