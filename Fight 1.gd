@@ -3,7 +3,7 @@ extends Node2D
 
 var enemyHP = 3400
 var ourHP = [70,70,70,70,70,70,70]
-var i = 0
+var turn = 1
 var enemy_attack = false
 var j = 0
 var deaths = 0
@@ -42,12 +42,37 @@ func _change_life(nb: int):
 	print(ourHP[nb]/70.0)
 	
 
-	
+var posChatsX = [100, 230, 380, 515, 700, 830, 950]
+
 func _attack():
 	get_node("Dice1").visible = true
 	get_node("EnemyDice").visible = false
+	
+	if turn >= 7:
+		turn = 1
+		enemy_attack = true
+		get_node("RollDice").disabled = true
+		get_node("pointer").position.x = 400
+		get_node("pointer").position.y = 50
+		return
+	
+	if ourHP[turn] == 0:
+		turn += 1
+		_attack()
+		
+	get_node("pointer").position.x = posChatsX[turn]
+	
+	var damage = roll_dice(20, "Dice1")
+	if (damage < enemyHP):
+		enemyHP -= damage
+	else:
+		enemyHP = 0
+	
+	turn += 1
+	
+	"""
 	if (get_node("pointer").position.x <= 1100):
-		var j = 0 if i+1 == _alive_count() else i+1
+		var j = 0 if turn+1 == _alive_count() else turn+1
 		get_node("pointer").position.x += 150
 		while (ourHP[j] == 0):
 			print("<= 1100 Le chat  " + str(j) + " a " + str(ourHP[j]) + "HP")
@@ -69,14 +94,14 @@ func _attack():
 		enemyHP -= damage
 	else:
 		enemyHP = 0
-	i += 1
-	if i == _alive_count():
+	turn += 1
+	if turn == _alive_count():
 		enemy_attack = true
 		get_node("RollDice").disabled = true
-		i = 0
+		turn = 0
 		get_node("pointer").position.x = 400
 		get_node("pointer").position.y = 50
-
+	"""
 	
 	
 func _enemy_attack():
@@ -92,12 +117,22 @@ func _enemy_attack():
 		ourHP[nb] = 0
 	_change_life(nb)
 	enemy_attack = false
-	print("Le chat numéro" + str(nb) + " a " + str(ourHP[nb]) + "HP")
-	get_node("RollDice").disabled = false
-	var j = 0
-	get_node("pointer").position.x = 100
-	while (ourHP[j] == 0):
-		print("Le chat  " + str(j) + " a " + str(ourHP[j]) + "HP")
-		get_node("pointer").position.x += 150
-		j += 1
-	get_node("pointer").position.y = 348.107
+	if(_alive_count() > 0):
+		for i in range (7):
+			if ourHP[i] > 0:
+				get_node("pointer").position.x = posChatsX[i]
+				break
+				print(posChatsX[i])
+		
+		get_node("pointer").position.y = 348.107
+		
+		#print("Le chat numéro" + str(nb) + " a " + str(ourHP[nb]) + "HP")
+		get_node("RollDice").disabled = false
+		"""var j = 0
+		get_node("pointer").position.x = 100
+		while (ourHP[j] == 0):
+			print("Le chat  " + str(j) + " a " + str(ourHP[j]) + "HP")
+			get_node("pointer").position.x += 150
+			j += 1
+		get_node("pointer").position.y = 348.107
+		"""

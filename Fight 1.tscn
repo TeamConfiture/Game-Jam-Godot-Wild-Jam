@@ -167,7 +167,7 @@ position = Vector2( 124.444, 2.22229 )
 texture = ExtResource( 5 )
 
 [node name="life" type="Sprite" parent="Sprite/green"]
-position = Vector2( -54.8083, -201.862 )
+position = Vector2( -10.0756, -197.153 )
 scale = Vector2( 0.270629, 0.270629 )
 texture = ExtResource( 14 )
 
@@ -237,7 +237,7 @@ position = Vector2( 1713.64, 32.829 )
 texture = ExtResource( 15 )
 
 [node name="life" type="Sprite" parent="Sprite/yelmlo"]
-position = Vector2( -54.8083, -201.862 )
+position = Vector2( -12.4302, -199.508 )
 scale = Vector2( 0.270629, 0.270629 )
 texture = ExtResource( 14 )
 
